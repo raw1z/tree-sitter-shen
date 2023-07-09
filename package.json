@@ -1,0 +1,25 @@
+{
+  "name": "tree-sitter-shen",
+  "version": "0.0.1",
+  "description": "Tree-sitter parser for shen",
+  "main": "bindings/node",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raw1z/tree-sitter-shen.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rawane ZOSSOU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raw1z/tree-sitter-shen/issues"
+  },
+  "homepage": "https://github.com/raw1z/tree-sitter-shen#readme",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  }
+}
