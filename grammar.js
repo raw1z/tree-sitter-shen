@@ -31,8 +31,7 @@ module.exports = grammar({
       $.variable,
       $.abstraction,
       $.application,
-      $.function,
-      $.macro,
+      $.shen_def,
       $.list,
       $.tuple,
       $.vector,
@@ -89,8 +88,13 @@ module.exports = grammar({
     application: ($) => seq("(", repeat1($._statement) , ")"),
 
     // function and macros
-    function: ($) => seq("(", "define", $.symbol, repeat1($.rule), ")"),
-    macro: ($) => seq("(", "defmacro", $.symbol, repeat1($.rule), ")"),
+    shen_def: ($) => seq(
+      "(",
+      choice("define", "defmacro"),
+      field("name", $.symbol),
+      alias(repeat1($.rule), $.shen_def_body),
+      ")"
+    ),
     rule: ($) => prec.left(1, seq(
       $.pattern,
       choice("->", "<-"),

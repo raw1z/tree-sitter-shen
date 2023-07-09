@@ -211,10 +211,13 @@ application
       (boolean))))
 
 ================================================================================
-function
+function and macro
 ================================================================================
 (define identity
   X -> X)
+
+(defmacro logmacro
+  [log N] -> [log N 10])
 
 (define prefix?
   [] _ -> true
@@ -228,60 +231,77 @@ function
   _ Y -> Y)
 --------------------------------------------------------------------------------
 (source_file
-  (function
-    (symbol)
-    (rule
-      (pattern
-        (variable))
-      (variable)))
-  (function
-    (symbol)
-    (rule
-      (pattern
-        (list)
-        (symbol))
-      (boolean))
-    (rule
-      (pattern
-        (list
-          (cons
-            car: (variable)
-            cdr: (variable)))
-        (list
-          (cons
-            car: (variable)
-            cdr: (variable))))
-      (application
-        (symbol)
-        (variable)
+  (shen_def
+    name: (symbol)
+    (shen_def_body
+      (rule
+        (pattern
+          (variable))
         (variable))))
-  (function
-    (symbol)
-    (rule
-      (pattern
+  (shen_def
+    name: (symbol)
+    (shen_def_body
+      (rule
+        (pattern
+          (list
+            (symbol)
+            (variable)))
         (list
-          (cons
-            car: (variable)
-            car: (variable)
-            cdr: (variable))))
-      (list
-        (variable)
-        (variable)
-        (variable))))
-  (function
-    (symbol)
-    (rule
-      (pattern
-        (variable)
-        (variable))
-      (variable)
-      (guard
+          (symbol)
+          (variable)
+          (number
+            (integer))))))
+  (shen_def
+    name: (symbol)
+    (shen_def_body
+      (rule
+        (pattern
+          (list)
+          (symbol))
+        (boolean))
+      (rule
+        (pattern
+          (list
+            (cons
+              car: (variable)
+              cdr: (variable)))
+          (list
+            (cons
+              car: (variable)
+              cdr: (variable))))
         (application
           (symbol)
           (variable)
-          (variable))))
-    (rule
-      (pattern
-        (symbol)
-        (variable))
-      (variable))))
+          (variable)))))
+  (shen_def
+    name: (symbol)
+    (shen_def_body
+      (rule
+        (pattern
+          (list
+            (cons
+              car: (variable)
+              car: (variable)
+              cdr: (variable))))
+        (list
+          (variable)
+          (variable)
+          (variable)))))
+  (shen_def
+    name: (symbol)
+    (shen_def_body
+      (rule
+        (pattern
+          (variable)
+          (variable))
+        (variable)
+        (guard
+          (application
+            (symbol)
+            (variable)
+            (variable))))
+      (rule
+        (pattern
+          (symbol)
+          (variable))
+        (variable)))))

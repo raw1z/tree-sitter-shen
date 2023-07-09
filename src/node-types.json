@@ -24,19 +24,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {
@@ -87,19 +83,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {
@@ -155,19 +147,15 @@
             "named": true
           },
           {
-            "type": "function",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
           {
-            "type": "macro",
+            "type": "number",
             "named": true
           },
           {
-            "type": "number",
+            "type": "shen_def",
             "named": true
           },
           {
@@ -213,19 +201,15 @@
             "named": true
           },
           {
-            "type": "function",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
           {
-            "type": "macro",
+            "type": "number",
             "named": true
           },
           {
-            "type": "number",
+            "type": "shen_def",
             "named": true
           },
           {
@@ -253,25 +237,6 @@
     }
   },
   {
-    "type": "function",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "rule",
-          "named": true
-        },
-        {
-          "type": "symbol",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "guard",
     "named": true,
     "fields": {},
@@ -296,19 +261,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {
@@ -363,19 +324,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {
@@ -396,25 +353,6 @@
         },
         {
           "type": "vector",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "macro",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "rule",
-          "named": true
-        },
-        {
-          "type": "symbol",
           "named": true
         }
       ]
@@ -468,19 +406,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {
@@ -531,10 +465,6 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "guard",
           "named": true
         },
@@ -543,15 +473,15 @@
           "named": true
         },
         {
-          "type": "macro",
-          "named": true
-        },
-        {
           "type": "number",
           "named": true
         },
         {
           "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "shen_def",
           "named": true
         },
         {
@@ -572,6 +502,47 @@
         },
         {
           "type": "vector",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "shen_def",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "shen_def_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "shen_def_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "rule",
           "named": true
         }
       ]
@@ -602,19 +573,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {
@@ -665,19 +632,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {
@@ -728,19 +691,15 @@
           "named": true
         },
         {
-          "type": "function",
-          "named": true
-        },
-        {
           "type": "list",
           "named": true
         },
         {
-          "type": "macro",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "shen_def",
           "named": true
         },
         {

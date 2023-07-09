@@ -96,11 +96,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "function"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "macro"
+          "name": "shen_def"
         },
         {
           "type": "SYMBOL",
@@ -494,7 +490,7 @@
         }
       ]
     },
-    "function": {
+    "shen_def": {
       "type": "SEQ",
       "members": [
         {
@@ -502,47 +498,37 @@
           "value": "("
         },
         {
-          "type": "STRING",
-          "value": "define"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "define"
+            },
+            {
+              "type": "STRING",
+              "value": "defmacro"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "symbol"
-        },
-        {
-          "type": "REPEAT1",
+          "type": "FIELD",
+          "name": "name",
           "content": {
             "type": "SYMBOL",
-            "name": "rule"
+            "name": "symbol"
           }
         },
         {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "macro": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "STRING",
-          "value": "defmacro"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "symbol"
-        },
-        {
-          "type": "REPEAT1",
+          "type": "ALIAS",
           "content": {
-            "type": "SYMBOL",
-            "name": "rule"
-          }
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "rule"
+            }
+          },
+          "named": true,
+          "value": "shen_def_body"
         },
         {
           "type": "STRING",
