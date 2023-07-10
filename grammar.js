@@ -1,7 +1,7 @@
 const DIGIT = /\d/
-const ALPHA = /[a-zA-Z=\-\*\/\+\?\$\.\{\}_!~@><&%'#`;:]/
-const ALPHA_LOWER_BEGIN = /[a-z=\*\/\?\$\.\{\}_!~@><&%'#`;:]/
-const ALPHA_UPPER_BEGIN = /[A-Z=\*\/\?\$\.\{\}_!~@><&%'#`;:]/
+const ALPHA = /[a-zA-Z=\-\*\/\+\?\$\._!~@><&%'#`;:]/
+const ALPHA_LOWER_BEGIN = /[a-z=\*\/\?\$\._!~@><&%'#`;:]/
+const ALPHA_UPPER_BEGIN = /[A-Z=\*\/\?\$\._!~@><&%'#`;:]/
 
 module.exports = grammar({
   name: 'shen',
@@ -63,7 +63,9 @@ module.exports = grammar({
     // symbol
     symbol: () => token.immediate(choice(
       seq(ALPHA_LOWER_BEGIN, optional(repeat(choice(ALPHA, DIGIT)))),
-      seq(/[-+]+/, optional(seq(ALPHA, repeat(choice(ALPHA, DIGIT)))))
+      seq(/[-+]+/, optional(seq(ALPHA, repeat(choice(ALPHA, DIGIT))))),
+      "{",
+      "}"
     )),
 
     // variable
@@ -92,7 +94,8 @@ module.exports = grammar({
       "(",
       choice("define", "defmacro"),
       field("name", $.symbol),
-      alias(repeat1($.rule), $.shen_def_body),
+      optional($.signature),
+      $.shen_def_body,
       ")"
     ),
     rule: ($) => prec.left(1, seq(
@@ -103,5 +106,17 @@ module.exports = grammar({
     )),
     pattern: ($) => repeat1($._statement),
     guard: ($) => seq("where", $._statement),
+    shen_def_body: ($) => repeat1($.rule),
+    _type: () => /[a-zA-Z=\-\*\/\+\?\$\._!~@><&%'#`;:]+/,
+    type: ($) => choice(
+      $._type,
+      seq("(", optional(choice("list", "vector")), repeat1($._type), ")")
+    ),
+    signature: ($) => seq(
+      "}",
+      repeat1(seq($.type, "-->")),
+      $.type,
+      "{"
+    )
   },
 });

@@ -305,3 +305,64 @@ function and macro
           (symbol)
           (variable))
         (variable)))))
+
+================================================================================
+function signature
+================================================================================
+(define square
+  }number --> number{
+  X -> (* X X))
+
+(define swap
+  }(A * B) --> (B * A){
+  (@p X Y) -> (@p Y X))
+
+(define unit-vector?
+  }(vector A) --> boolean{
+  (@v _ <>) -> true
+  _ -> false)
+--------------------------------------------------------------------------------
+(source_file
+  (shen_def
+    name: (symbol)
+    (signature
+      (type)
+      (type))
+    (shen_def_body
+      (rule
+        (pattern
+          (variable))
+        (application
+          (symbol)
+          (variable)
+          (variable)))))
+  (shen_def
+    name: (symbol)
+    (signature
+      (type)
+      (type))
+    (shen_def_body
+      (rule
+        (pattern
+          (tuple
+            (variable)
+            (variable)))
+        (tuple
+          (variable)
+          (variable)))))
+  (shen_def
+    name: (symbol)
+    (signature
+      (type)
+      (type))
+    (shen_def_body
+      (rule
+        (pattern
+          (vector
+            (symbol)
+            (vector)))
+        (boolean))
+      (rule
+        (pattern
+          (symbol))
+        (boolean)))))
