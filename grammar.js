@@ -84,7 +84,7 @@ module.exports = grammar({
     ),
 
     // abstraction and application
-    abstraction: ($) => prec.left(1, seq("(/.", repeat1($._statement), ")")),
+    abstraction: ($) => prec.left(1, seq("(", "/.", repeat1($._statement), ")")),
     application: ($) => seq("(", repeat1($._statement) , ")"),
 
     // function and macros

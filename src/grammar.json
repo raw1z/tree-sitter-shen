@@ -454,7 +454,11 @@
         "members": [
           {
             "type": "STRING",
-            "value": "(/."
+            "value": "("
+          },
+          {
+            "type": "STRING",
+            "value": "/."
           },
           {
             "type": "REPEAT1",
