@@ -113,10 +113,10 @@ module.exports = grammar({
       seq("(", optional(choice("list", "vector")), repeat1($._type), ")")
     ),
     signature: ($) => seq(
-      "}",
+      "{",
       repeat1(seq($.type, "-->")),
       $.type,
-      "{"
+      "}"
     )
   },
 });

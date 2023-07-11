@@ -310,15 +310,15 @@ function and macro
 function signature
 ================================================================================
 (define square
-  }number --> number{
+  {number --> number}
   X -> (* X X))
 
 (define swap
-  }(A * B) --> (B * A){
+  {(A * B) --> (B * A)}
   (@p X Y) -> (@p Y X))
 
 (define unit-vector?
-  }(vector A) --> boolean{
+  {(vector A) --> boolean}
   (@v _ <>) -> true
   _ -> false)
 --------------------------------------------------------------------------------

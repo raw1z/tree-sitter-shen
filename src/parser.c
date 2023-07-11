@@ -44,9 +44,9 @@ enum {
   sym__type = 25,
   anon_sym_list = 26,
   anon_sym_vector = 27,
-  anon_sym_RBRACE = 28,
+  anon_sym_LBRACE = 28,
   anon_sym_DASH_DASH_GT = 29,
-  anon_sym_LBRACE = 30,
+  anon_sym_RBRACE = 30,
   sym_source_file = 31,
   sym__statement = 32,
   sym_boolean = 33,
@@ -100,9 +100,9 @@ static const char * const ts_symbol_names[] = {
   [sym__type] = "_type",
   [anon_sym_list] = "list",
   [anon_sym_vector] = "vector",
-  [anon_sym_RBRACE] = "}",
-  [anon_sym_DASH_DASH_GT] = "-->",
   [anon_sym_LBRACE] = "{",
+  [anon_sym_DASH_DASH_GT] = "-->",
+  [anon_sym_RBRACE] = "}",
   [sym_source_file] = "source_file",
   [sym__statement] = "_statement",
   [sym_boolean] = "boolean",
@@ -156,9 +156,9 @@ static const TSSymbol ts_symbol_map[] = {
   [sym__type] = sym__type,
   [anon_sym_list] = anon_sym_list,
   [anon_sym_vector] = anon_sym_vector,
-  [anon_sym_RBRACE] = anon_sym_RBRACE,
-  [anon_sym_DASH_DASH_GT] = anon_sym_DASH_DASH_GT,
   [anon_sym_LBRACE] = anon_sym_LBRACE,
+  [anon_sym_DASH_DASH_GT] = anon_sym_DASH_DASH_GT,
+  [anon_sym_RBRACE] = anon_sym_RBRACE,
   [sym_source_file] = sym_source_file,
   [sym__statement] = sym__statement,
   [sym_boolean] = sym_boolean,
@@ -296,7 +296,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [anon_sym_RBRACE] = {
+  [anon_sym_LBRACE] = {
     .visible = true,
     .named = false,
   },
@@ -304,7 +304,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [anon_sym_LBRACE] = {
+  [anon_sym_RBRACE] = {
     .visible = true,
     .named = false,
   },
@@ -629,9 +629,9 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 't') ADVANCE(38);
       if (lookahead == 'v') ADVANCE(24);
       if (lookahead == 'w') ADVANCE(31);
-      if (lookahead == '{') ADVANCE(144);
+      if (lookahead == '{') ADVANCE(142);
       if (lookahead == '|') ADVANCE(106);
-      if (lookahead == '}') ADVANCE(142);
+      if (lookahead == '}') ADVANCE(144);
       if (lookahead == '\t' ||
           lookahead == '\n' ||
           lookahead == '\r' ||
@@ -737,8 +737,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '\\') ADVANCE(7);
       if (lookahead == 'f') ADVANCE(70);
       if (lookahead == 't') ADVANCE(87);
-      if (lookahead == '{') ADVANCE(63);
-      if (lookahead == '}') ADVANCE(142);
+      if (lookahead == '{') ADVANCE(142);
+      if (lookahead == '}') ADVANCE(63);
       if (lookahead == '+' ||
           lookahead == '-') ADVANCE(67);
       if (lookahead == '\t' ||
@@ -1820,13 +1820,13 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead == '~') ADVANCE(137);
       END_STATE();
     case 142:
-      ACCEPT_TOKEN(anon_sym_RBRACE);
+      ACCEPT_TOKEN(anon_sym_LBRACE);
       END_STATE();
     case 143:
       ACCEPT_TOKEN(anon_sym_DASH_DASH_GT);
       END_STATE();
     case 144:
-      ACCEPT_TOKEN(anon_sym_LBRACE);
+      ACCEPT_TOKEN(anon_sym_RBRACE);
       END_STATE();
     default:
       return false;
@@ -2027,9 +2027,9 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_where] = ACTIONS(1),
     [anon_sym_list] = ACTIONS(1),
     [anon_sym_vector] = ACTIONS(1),
-    [anon_sym_RBRACE] = ACTIONS(1),
-    [anon_sym_DASH_DASH_GT] = ACTIONS(1),
     [anon_sym_LBRACE] = ACTIONS(1),
+    [anon_sym_DASH_DASH_GT] = ACTIONS(1),
+    [anon_sym_RBRACE] = ACTIONS(1),
   },
   [1] = {
     [sym_source_file] = STATE(155),
@@ -2089,7 +2089,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_LBRACK] = ACTIONS(29),
     [anon_sym_LPAREN] = ACTIONS(31),
     [anon_sym_LT_GT] = ACTIONS(33),
-    [anon_sym_RBRACE] = ACTIONS(35),
+    [anon_sym_LBRACE] = ACTIONS(35),
   },
   [3] = {
     [sym__statement] = STATE(23),
@@ -2121,7 +2121,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_LBRACK] = ACTIONS(29),
     [anon_sym_LPAREN] = ACTIONS(31),
     [anon_sym_LT_GT] = ACTIONS(33),
-    [anon_sym_RBRACE] = ACTIONS(35),
+    [anon_sym_LBRACE] = ACTIONS(35),
   },
   [4] = {
     [sym__statement] = STATE(23),
@@ -2153,7 +2153,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_LBRACK] = ACTIONS(29),
     [anon_sym_LPAREN] = ACTIONS(31),
     [anon_sym_LT_GT] = ACTIONS(33),
-    [anon_sym_RBRACE] = ACTIONS(35),
+    [anon_sym_LBRACE] = ACTIONS(35),
   },
   [5] = {
     [sym__statement] = STATE(23),
@@ -2185,7 +2185,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_LBRACK] = ACTIONS(29),
     [anon_sym_LPAREN] = ACTIONS(31),
     [anon_sym_LT_GT] = ACTIONS(33),
-    [anon_sym_RBRACE] = ACTIONS(35),
+    [anon_sym_LBRACE] = ACTIONS(35),
   },
   [6] = {
     [sym__statement] = STATE(31),
@@ -5432,14 +5432,14 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     ACTIONS(487), 2,
       anon_sym_DASH_DASH_GT,
-      anon_sym_LBRACE,
+      anon_sym_RBRACE,
   [3610] = 2,
     ACTIONS(3), 2,
       sym__whitespace,
       sym_comment,
     ACTIONS(489), 2,
       anon_sym_DASH_DASH_GT,
-      anon_sym_LBRACE,
+      anon_sym_RBRACE,
   [3619] = 2,
     ACTIONS(3), 2,
       sym__whitespace,
@@ -5460,7 +5460,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     ACTIONS(491), 2,
       anon_sym_DASH_DASH_GT,
-      anon_sym_LBRACE,
+      anon_sym_RBRACE,
   [3646] = 3,
     ACTIONS(440), 1,
       anon_sym_PIPE,
@@ -5496,7 +5496,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(499), 1,
       anon_sym_DASH_DASH_GT,
     ACTIONS(501), 1,
-      anon_sym_LBRACE,
+      anon_sym_RBRACE,
     ACTIONS(3), 2,
       sym__whitespace,
       sym_comment,

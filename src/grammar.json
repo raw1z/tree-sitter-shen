@@ -683,7 +683,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "}"
+          "value": "{"
         },
         {
           "type": "REPEAT1",
@@ -707,7 +707,7 @@
         },
         {
           "type": "STRING",
-          "value": "{"
+          "value": "}"
         }
       ]
     }
